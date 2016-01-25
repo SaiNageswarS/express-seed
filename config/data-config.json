@@ -1,0 +1,10 @@
+{
+  "client": "pg",
+  "connection": {
+    "host"     : "localhost",
+    "user"     : "postgres",
+    "password" : "zoomo123",
+    "database" : "ideal_lamp",
+    "charset"  : "utf8"
+  }
+}

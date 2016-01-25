@@ -1,0 +1,21 @@
+{
+  "name": "ideal-lamp-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sai Nageswar S",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^0.9.1",
+    "consign": "^0.1.2",
+    "express": "^4.13.4",
+    "knex": "^0.9.0",
+    "morgan": "^1.6.1",
+    "pg": "^4.4.3",
+    "winston": "^2.1.1"
+  }
+}
