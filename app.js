@@ -1,6 +1,6 @@
 var express = require('express'),
-morgan = require('morgan'),
-bodyParser = require('body-parser');
+    morgan = require('morgan'),
+    bodyParser = require('body-parser');
 
 var config = require('./config/' + (process.env.NODE_ENV || 'development') + '.json');
 
@@ -29,5 +29,6 @@ consign({cwd: 'app'})
     .into(app);
 
 module.exports = app;
+
 
 
