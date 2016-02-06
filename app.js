@@ -1,16 +1,20 @@
-var express = require('express');
-var app = express();
-var morgan = require('morgan');
+var express = require('express'),
+morgan = require('morgan'),
+bodyParser = require('body-parser');
 
-var config = require('./config/config.json');
+var config = require('./config/' + (process.env.NODE_ENV || 'development') + '.json');
 
 //initialize app
+var app = express();
+
 app.logger = require('./init/logger');
 app.use(morgan('combined'));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 //initialize db
-var dbConfig = require('./config/data-config.json');
-var knex = require('knex')(dbConfig);
+var knex = require('knex')(config.db);
 
 app.db = knex;
 
@@ -20,12 +24,10 @@ var consign = require('consign');
 consign({cwd: 'app'})
     .include('models')
     .include('controllers')
+    .include('auth')
     .include('routes')
     .into(app);
 
-app.listen(config.port, function() {
-    app.logger.info("Listening on port " + config.port);
-});
-
+module.exports = app;
 
 
